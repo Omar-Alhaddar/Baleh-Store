@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Login and Register</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="css/opensans-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/line-awesome/css/line-awesome.min.css">
+	<!-- Jquery -->
+	<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+	<!-- Main Style Css -->
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'CSS/allproducts.css' %}" />
+	<script src="{% static 'JS/main.js' %}"></script>
+</head>
+<body class="form-v4">
+<!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <!-- <h1 class="logo"><a href="index.html">Cheap Prices<span>.</span></a></h1> -->
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <a href="/" class="logo"><img src="static/imgs/logo_white.png" alt=""></a>
+
+            <nav id="navbar" class="navbar">
+                <h1 style="margin-right:130px">My Cart</h1>
+                <ul>
+                <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                <li><a class="nav-link scrollto active" href="/allproducts">All products</a></li>
+                <li><a class="nav-link scrollto" href="/#about">About</a></li>
+                <li><a class="nav-link scrollto" href="/logout">logout</a></li>
+
+                </ul>
+                    <div class="d-flex justify-content-center h-100">
+                    <div class="searchbar">
+                        <input class="search_input" type="text" name="" placeholder="Search...">
+                        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                    </div>
+                </div>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+
+    <section class="item content">
+        <div class="container toparea">
+            <div class="underlined-title">
+                <div class="editContent">
+                    <h1 class="text-center latestitems">MAKE PAYMENT</h1>
+                </div><br>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                  <img class="card-img-top" src="static/img/images/1.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text">Product name: Trouser</p>
+                  <p class="card-text">Description: same as a new trouser</p>
+                  <p class="card-text">Price: 8$</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <form action="/mycart" method="POST">
+                        {% csrf_token %}
+                        <div class="btn-group">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <form action="/checkout" method="POST">
+                {% csrf_token %}
+                <div class="secret">
+                    <input type="submit" style="background-color:red;color:white;margin-left:450px;" value="purchase">
+                </div>
+                </form>
+              
+           
+        </div>
+        </section>
+        
+        <!-- CALL TO ACTION =============================-->
+        <section class="content-block" style="background-color:#00bba7;">
+        <div class="container text-center">
+        </div>
+        </section>
+  <!-- ======= Footer ======= -->
+
+  <footer id="footer">
+
+    <div class="footer-top">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-3 col-md-6 footer-contact">
+                <h3>Baleh Store<span>.</span></h3>
+                <p>
+                  Al-Irsal Street <br>
+                  Ramallah 9993900<br>
+                  Palestine <br><br>
+                  <strong>Phone:</strong> +970 599 999 999<br>
+                  <strong>Email:</strong> info@baleh.com<br>
+                </p>
+              </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <p>our social media presence will be established soon</p>
+            <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    </div>
+
+    <div class="container py-4">
+        <div class="copyright">
+            &copy; Copyright <strong><span id="baleh-id">Baleh Store</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+
+        Designed by <a href="#">Team Slayers</a>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+<div id="preloader"></div>
+  <a href="#" id="up-arrow" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+
+<!-- 
+<div id="edd_checkout_wrap" class="col-md-8 col-md-offset-2">
+    <div id="edd_checkout_cart_wrap">
+        <table id="edd_checkout_cart" class="ajaxed">
+        <thead>
+        <tr class="edd_cart_header_row">
+            <th class="edd_cart_item_name">
+                Product Name
+            </th>
+            <th class="edd_cart_item_price">
+                Product Price
+            </th>
+            <th class="edd_cart_item_price">
+                Category
+            </th>
+            <th class="edd_cart_actions">
+                Actions
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for product in CartProducts%}
+        <tr class="edd_cart_item" id="edd_cart_item_0_25" data-download-id="25">
+            <td class="edd_cart_item_name">
+                <div class="edd_cart_item_image">
+                    <img style="width:50px; height:50px" src="../static/img/images/{{product.image}}.jpg" alt="item-image">
+                </div>
+                <span class="edd_checkout_cart_item_title">{{product.name}}</span>
+            </td>
+            <td class="edd_cart_item_price">
+                ${{product.price}}
+            </td>
+            <td class="edd_cart_item_price">
+                {{product.categories}}
+            </td>
+            <td class="edd_cart_actions">
+                <a class="edd_cart_remove_item_btn" href="/remove/{{product.id}}">Remove</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        
+        
+        <tr class="edd_cart_footer_row">
+            <th colspan="5" class="edd_cart_total">
+                Total: <span class="edd_cart_amount" >${{total_cost}}</span>
+            </th>
+        </tr>
+        </tfoot>
+        </table>
+    </div>
+<form action="/checkout" method="POST">
+    {% csrf_token %}
+    <div id="edd_checkout_form_wrap" class="edd_clearfix">
+        <fieldset id="edd_purchase_submit">
+            <p id="edd_final_total_wrap">
+                <strong>Purchase Total:</strong>
+                <span class="edd_cart_amount" >${{total_cost}}</span>
+            </p>
+            <input type="hidden" name="sum" value="{{sum_items}}">
+            <input type="hidden" name="cost" value="{{total_cost}}">
+            <input type="submit" class="edd-submit button" id="edd-purchase-button" name="edd-purchase" value="Purchase">
+        </fieldset>
+    </div>
+</form>
+</div> -->

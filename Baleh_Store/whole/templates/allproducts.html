@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Login and Register</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="css/opensans-font.css">
+	<link rel="stylesheet" type="text/css" href="fonts/line-awesome/css/line-awesome.min.css">
+	<!-- Jquery -->
+	<link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
+	<!-- Main Style Css -->
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'CSS/allproducts.css' %}" />
+	<script src="{% static 'JS/main.js' %}"></script>
+</head>
+<body class="form-v4">
+<!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <!-- <h1 class="logo"><a href="index.html">Cheap Prices<span>.</span></a></h1> -->
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <a href="/" class="logo"><img src="static/imgs/logo_white.png" alt=""></a>
+
+            <nav id="navbar" class="navbar">
+                <h1 style="margin-right:25px">Products</h1>
+                <ul>
+                <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                <li><a class="nav-link scrollto" href="/#about">About</a></li>
+                <li><a class="nav-link scrollto" href="/mycart">Cart</a></li>
+                <li><a class="nav-link scrollto" href="/myproducts">My products</a></li>
+                <li><a class="nav-link scrollto" href="/logout">Logout</a></li>
+                </ul>
+                    <div class="d-flex justify-content-center h-100">
+                    <div class="searchbar">
+                        <input class="search_input" type="text" name="" placeholder="Search...">
+                        <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                    </div>
+                </div>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- End Header -->
+<!-- 
+    <section class="item content">
+      <div class="container toparea">
+        <div class="underlined-title">
+          <div class="editContent">
+            <h1 class="text-center latestitems">OUR PRODUCTS</h1>
+          </div>
+        </div>
+        <div class="row">
+          {% for product in products %}
+          <div class="col-md-4">
+            <div class="productbox">
+              <div class="fadeshop">
+                <div class="captionshop text-center" style="display: none;">
+                  <h3>{{product.name}}</h3>
+                  <p>
+                    {{product.desc}}.
+                  </p>
+                  <p>
+                    {% if request.session.user_id %}
+                                       
+                        <a href="products/{{product.id}}/add" class="learn-more detailslearn"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                    {% endif %}
+
+                  </p>
+                </div>
+                <span class="maxproduct"><img src="../static/img/images/{{product.image}}.jpg" alt="" style="width: 200px; height: 200px;"></span>
+              </div>
+              <div class="product-details">
+                <a href="#">
+                <h1>{{product.name}}</h1>
+                </a>
+                <span class="price">
+                <span class="edd_price">${{product.price}}</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      </div>
+      </section>
+     -->
+
+
+     <main role="main">
+  
+      <div class="album py-5 bg-light">
+        <div class="container">
+  
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="static/img/images/1.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Product name: Trouser</p>
+                  <p class="card-text">Description: same as a new trouser</p>
+                  <p class="card-text">Price: 8$</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <form action="/mycart1" method="POST">
+                      {% csrf_token %}
+                      <div class="btn-group">
+                        <input type="submit" class="btn btn-sm btn-outline-secondary" value="Add to cart">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="static/img/images/2.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Product name: Carpet</p>
+                  <p class="card-text">Description: Good Quality carpet same as new</p>
+                  <p class="card-text">Price: 50$</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <form action="/mycart" method="POST">
+                      {% csrf_token %}
+                      <div class="btn-group">
+                        <input type="submit" class="btn btn-sm btn-outline-secondary" value="Add to cart">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="static/img/images/3.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Product name: Chainsaw</p>
+                  <p class="card-text">Description: very sharp chainsaw</p>
+                  <p class="card-text">Price: 21$</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <form action="/mycart2" method="POST">
+                      {% csrf_token %}
+                      <div class="btn-group">
+                        <input type="submit" class="btn btn-sm btn-outline-secondary" value="Add to cart">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="static/img/images/4.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Product name: Bicycle</p>
+                  <p class="card-text">Description: one month used Bicycle</p>
+                  <p class="card-text">Price: 12$</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <form action="/mycart3" method="POST">
+                      {% csrf_token %}
+                      <div class="btn-group">
+                        <input type="submit" class="btn btn-sm btn-outline-secondary" value="Add to cart">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="static/img/images/5.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Product name: computer</p>
+                  <p class="card-text">Description: old computer still works fine</p>
+                  <p class="card-text">Price: 30$</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <form action="/mycart4" method="POST">
+                      {% csrf_token %}
+                      <div class="btn-group">
+                        <input type="submit" class="btn btn-sm btn-outline-secondary" value="Add to cart">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="static/img/images/6.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Product name: Oven</p>
+                  <p class="card-text">Description: Little dammage to the outer layer</p>
+                  <p class="card-text">Price: 80$</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <form action="/mycart5" method="POST">
+                      {% csrf_token %}
+                      <div class="btn-group">
+                        <input type="submit" class="btn btn-sm btn-outline-secondary" value="Add to cart">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="static/img/images/8.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Product name: bed</p>
+                  <p class="card-text">Description: good quality bed with no dammage outside</p>
+                  <p class="card-text">Price: 140$</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <form action="/mycart7" method="POST">
+                      {% csrf_token %}
+                      <div class="btn-group">
+                        <input type="submit" class="btn btn-sm btn-outline-secondary" value="Add to cart">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="static/img/images/10.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Product name: Computer screen</p>
+                  <p class="card-text">Description: 3 month used screen</p>
+                  <p class="card-text">Price: 16$</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <form action="/mycart9" method="POST">
+                      {% csrf_token %}
+                      <div class="btn-group">
+                        <input type="submit" class="btn btn-sm btn-outline-secondary" value="Add to cart">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="static/img/images/11.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Product name: Jacket</p>
+                  <p class="card-text">Description: good quality jacket</p>
+                  <p class="card-text">Price: 11$</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <form action="/mycart10" method="POST">
+                      {% csrf_token %}
+                      <div class="btn-group">
+                        <input type="submit" class="btn btn-sm btn-outline-secondary" value="Add to cart">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="static/img/images/12.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Product name: High Pressure Washer</p>
+                  <p class="card-text">Description: 2 month used with excellent water pressure</p>
+                  <p class="card-text">Price: 22$</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <form action="/mycart11" method="POST">
+                      {% csrf_token %}
+                      <div class="btn-group">
+                        <input type="submit" class="btn btn-sm btn-outline-secondary" value="Add to cart">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="static/img/images/9.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text" id="c9">Product name: billard table</p>
+                  <p class="card-text">Description: 1 month used</p>
+                  <p class="card-text">Price: 100$</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <form action="/mycart12" method="POST">
+                      {% csrf_token %}
+                      <div class="btn-group">
+                        <input type="submit" class="btn btn-sm btn-outline-secondary" value="Add to cart">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </main>
+    
+      <!-- CALL TO ACTION =============================-->
+      <section class="content-block" style="background-color:#00bba7;">
+      <div class="container text-center">
+      <div class="row">
+        
+      </div>
+      </div>
+      </section>
+    
+       <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+              <div class="col-lg-3 col-md-6 footer-contact">
+                <h3>Baleh Store<span>.</span></h3>
+                <p>
+                  Al-Irsal Street <br>
+                  Ramallah 9993900<br>
+                  Palestine <br><br>
+                  <strong>Phone:</strong> +970 599 999 999<br>
+                  <strong>Email:</strong> info@baleh.com<br>
+                </p>
+              </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Social Networks</h4>
+                <p>our social media presence will be established soon</p>
+                <div class="social-links mt-3">
+                  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                  <a href="#" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
+                  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                </div>
+            </div>
+
+            </div>
+        </div>
+        </div>
+
+        <div class="container py-4">
+            <div class="copyright">
+                &copy; Copyright <strong><span id="baleh-id">Baleh Store</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+
+            Designed by <a href="#">Team Slayers</a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <div id="preloader"></div>
+  <a href="#" id="up-arrow" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+
+
+
+
